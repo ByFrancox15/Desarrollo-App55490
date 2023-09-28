@@ -11,11 +11,21 @@ export default styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontFamily: 'OpenSans'
+        fontFamily: 'OpenSans',
+        textAlign: 'center',
+        marginRight: 20,
+        marginBottom: 10,
     },
     price: {
-        fontSize: 25,
+        fontSize: 40,
         fontWeight: 'bold',
-        marginVertical: 15,
+        marginVertical: 40,
+        textAlign: 'center',
+        marginRight: 20,
     },
+    description: {
+        fontSize: 20,
+        margin: 10,
+    },
+
 })

@@ -10,4 +10,8 @@ export default styles = StyleSheet.create({
         flex: 1, 
         marginTop: 15,
     },
+    FontContainer: {
+        fontSize: 40,
+        fontFamily: 'OpenSansRegular',
+    },
 })

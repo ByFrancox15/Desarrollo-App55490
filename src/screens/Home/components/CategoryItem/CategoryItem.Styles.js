@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default styles = StyleSheet.create({
-    cardContainer: {
+    ContentContainer: {
         marginHorizontal: 20,
         marginVertical: 25,
         padding: 20,

@@ -1,23 +1,19 @@
-import { Details, Home, Products, } from "./src/screens"
-
-import { useState } from "react"
 import { useFonts } from "expo-font"
 import fonts from "./src/global/fonts"
+import StackNavigator from "./src/navigation/BottomTabsNavigator"
+import { NavigationContainer } from "@react-navigation/native";
+import BottomTabNavigator from "./src/navigation/BottomTabsNavigator";
 
 export default function App() {
   const [fontsLoaded] = useFonts(fonts)
-  const [CategorySelected, setCategorySelected] = useState('')
-  const [productSelected, setProductSelected] = useState()
 
   if (!fontsLoaded) {
     return null
   }
   
-  return productSelected ? (
-    <Details product={productSelected}/>
- ) : CategorySelected ? (
-  <Products category={CategorySelected} setProductSelected={setProductSelected} />
- ) : (
-  <Home setCategorySelected={setCategorySelected} />
- )
+  return (
+    <NavigationContainer>
+      <BottomTabNavigator />
+    </NavigationContainer>
+  )
 } 

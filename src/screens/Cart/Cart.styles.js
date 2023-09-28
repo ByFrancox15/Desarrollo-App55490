@@ -5,8 +5,5 @@ export default styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#f2dfb1',
     },
-    listContainer: {
-        fontSize: 20,
-    }
     
 })
