@@ -1,5 +1,6 @@
 import CartNavigator from "./CartNavigator";
 import StackNavigator from "./StackNavigator";
+import OrdersNavigator from "./OrdersNavigation";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet } from "react-native";
 import Feather from '@expo/vector-icons/Feather'
@@ -33,6 +34,18 @@ function BottomTabNavigator () {
                     tabBarIcon: ({ focused }) => (
                         <Feather 
                         name="shopping-cart" 
+                        size={24} 
+                        color={'#000000'}/>
+                    ),
+                }}
+                />
+                <BottomTab.Screen 
+                name= 'OrdersNav' 
+                component={OrdersNavigator}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <Feather 
+                        name="list" 
                         size={24} 
                         color={'#000000'}/>
                     ),

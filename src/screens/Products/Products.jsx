@@ -4,11 +4,13 @@ import { Header, SearchInput } from '../../components'
 
 import allProducts from '../../data/products'
 import styles from './Products.Styles'
+import { useSelector } from 'react-redux'
 
 const Products = ({ navigation, route }) => {
+    const category = useSelector(state = state.shop.categorySelected)
     const [arrProducts, setArrProducts] = useState([])
     const [keyword, setKeyword] = useState('')
-    const {category} = route.params 
+    //const {category} = route.params 
 
     useEffect(() => {
         if (category) {

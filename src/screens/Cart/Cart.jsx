@@ -2,8 +2,8 @@ import { View, Text, FlatList, Pressable } from 'react-native'
 
 import CartItem from './Components/CartItem'
 import React from 'react'
-import Cart from '../../data/Cart'
-import  styles from './Cart.styles'
+import styles from './Cart.Styles'
+import cart from '../../data/Cart'
 
 const Cart = () => {
   const renderItem = () => <CartItem /> 
@@ -12,7 +12,7 @@ const Cart = () => {
     <View style={styles.container}>
       <View>
         <FlatList 
-        data={Cart} 
+        data={cart} 
         keyExtractor={item => item.id} 
         renderItem={renderItem} 
         />
