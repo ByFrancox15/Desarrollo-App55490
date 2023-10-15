@@ -10,7 +10,7 @@ const initialState = {
     productIdSelected: null,
 }
 
-export const productSlice = createSlice({
+export const shopSlice = createSlice({
     name: 'shop',
     initialState,
     reducers: {

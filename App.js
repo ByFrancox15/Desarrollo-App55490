@@ -3,7 +3,7 @@ import fonts from "./src/global/fonts";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabNavigator from "./src/navigation/BottomTabsNavigator";
 import { Provider } from 'react-redux'
-import { store } from "./src/store";
+import store from "./src/store";
 
 export default function App() {
   const [fontsLoaded] = useFonts(fonts)

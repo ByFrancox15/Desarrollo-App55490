@@ -1,0 +1,1 @@
+export const baseUrl = 'https://console.firebase.google.com/project/trabajocoder-e-comerce/database/trabajocoder-e-comerce-default-rtdb/data/~2F'
