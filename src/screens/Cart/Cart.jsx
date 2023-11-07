@@ -4,9 +4,13 @@ import CartItem from './Components/CartItem'
 import React from 'react'
 import styles from './Cart.Styles'
 import cart from '../../data/Cart'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
-  const renderItem = () => <CartItem /> 
+  const cart = useSelector(state => state.cart.items)
+  const total = useSelector(state => state.cart.total)
+
+  const renderItem = ({item}) => <CartItem item={item} /> 
   
   return (
     <View style={styles.container}>
@@ -21,7 +25,7 @@ const Cart = () => {
         <Pressable>
           <Text>Confirm</Text>
           <View>
-            <Text>{`Total $100`}</Text> 
+            <Text>{`Total $${total}`}</Text> 
           </View>
         </Pressable>
       </View>

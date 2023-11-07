@@ -1,22 +1,33 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, SafeAreaView, Pressable } from 'react-native'
 
 import { Header } from '../../components'
 import React from 'react'
 import styles from './Details.Styles'
-import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../../features/Cart/CartSlice'
 
 const Details = ({route}) => {
-  const counter = useSelector(state => state.counter.value)
   const {product} = route.params
+  const dispatch = useDispatch ()
+
+  const handleAddToCart = () => {
+    dispatch(addItem({ ...product, quantity: 1 }))
+  }
+
   return (
-    <View style={styles.container}>
-      <Header title={'Detalle'}/>
-      <Image style={styles.Image} source= {{ uri: product.images[0] }}/>
-      <Text style={styles.title}>{product.title}</Text>
-      <Text style={styles.description}>{product.description}</Text>
-      <Text style={styles.price}>{`$ ${product.price}`} </Text>
-      <Text style={{fontSize: 50 }}>{counter}</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style = {styles.imageContainer}>
+          <Header title={'Detalle'}/>
+          <Image style={styles.Image} source= {{ uri: product.images[0] }}/>
+        </View>
+        <Text style={styles.title}>{product.title}</Text>
+        <Text style={styles.description}>{product.description}</Text>
+        <Text style={styles.price}>{`$ ${product.price}`} </Text>
+        <Text style={{fontSize: 50 }}>{counter}</Text>
+        <Pressable onPress={handleAddToCart}>
+          <Text>Add to cart</Text>
+        </Pressable>
+    </SafeAreaView>
   )
 }
 

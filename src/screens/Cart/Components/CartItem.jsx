@@ -3,18 +3,22 @@ import Feather from '@expo/vector-icons/Feather'
 import styles from './Cartitem.Styles'
 import React from 'react'
 
-const CartItem = () => {
+const CartItem = ({item}) => {
   return (
     <View style={styles.container}>
          <View>
-            <Text style={styles.name}>
-                Nombre
-            </Text>
+            <Image
+                style={styles.image}
+                source={{
+                    uri: item.images[0]
+                }} 
+            />
+            <Text style={styles.name}>{item.title}</Text>
         </View>
         <View style={styles.details}>
             <View>
-                <Text>Cantidad</Text>
-                <Text>Precio</Text>
+                <Text>{item.quantity} </Text>
+                <Text>{item.price} </Text>
             </View>
             <Pressable>
                 <Feather name="trash" size={24} color={"red"}/>

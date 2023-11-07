@@ -1,4 +1,4 @@
-import { FlatList, View, TouchableOpacity, Text} from 'react-native'
+import { FlatList, View, TouchableOpacity, Text, SafeAreaView} from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Header, SearchInput } from '../../components'
 
@@ -18,18 +18,27 @@ const Products = ({ navigation, route }) => {
     }, [])
 
   return (
-    <View style={styles.container}>
-        <Header title={category} />
+    <SafeAreaView style={styles.container}>
         <SearchInput onSearch={setKeyword} />
         <View style={styles.listContainer} >
-            {!data.isLoading && (
+            {!isLoading && (
             <FlatList 
                     data={ Object.values(data) }
                     numColumns={2}
                     columnWrapperStyle={styles.weapperStyle}
                     renderItem={({item}) => (
-                        <TouchableOpacity onPress={() => navigation.navigate ('Details', { product: item })}>
+                        <TouchableOpacity 
+                        styles={styles.productContainer}
+                        onPress={() => navigation.navigate ('Details', { product: item })}
+                    >
+                        <Image 
+                            style={styles.image}
+                            source={{
+                                uri: item.images[0],
+                            }}
+                        />
                         <Text style={styles.FontContainer}>{item.title}</Text> 
+                        <Text style={styles.price}>{`$${item.price.toFixed(2)}`} </Text>
                         </TouchableOpacity>
                 )} 
                     keyExtractor={item => item.id}
@@ -37,7 +46,7 @@ const Products = ({ navigation, route }) => {
             )}
         
         </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
